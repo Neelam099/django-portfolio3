@@ -1,0 +1,60 @@
+{% extends 'base2.html' %}
+{% block title %} contact
+{% endblock title %}
+
+{% block contactactive %}
+menu-active
+{% endblock contactactive %}
+
+{% block body %}
+
+<section id="intro" style="background: url('/static/img/bg/contact.jpg') top center;width: 100%;height: 100vh;  
+  background-size: cover; overflow: hidden; position: relative;">
+  
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0"><br><span>Contact Me</span> </h1>
+      <p class="mb-4 pb-0">By filling the form below and giving your suggestions!!</p>
+      {% comment %} <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+        data-autoplay="true"></a> {% endcomment %}
+      
+    </div>
+  </section>
+<!-- contact us -->
+  <div class="container col-lg-6 col-10 mx-auto bg-info py-3" >
+    <h1 class="text-center">Contact Me</h1>
+    <hr>
+    <form action="/contact/" method="POST">
+     {% csrf_token %}
+      <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="tel">Number</label>
+            <input type="tel" class="form-control" id="number" name="number" placeholder="Enter number" required>
+        </div>
+        
+ <div class="form-group">
+            <label for="content">Your Message!!</label>
+            <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+        </div>
+       
+
+  <button type="submit" class="btn btn-warning mt-2">Submit</button>
+</form>
+  </div>
+{% comment %} <div class="container">
+
+    <form method="post" action="/contact">
+        {% csrf_token %}
+       
+
+
+        
+    </form>
+</div> {% endcomment %}
+{% endblock body %}
